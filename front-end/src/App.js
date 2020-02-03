@@ -1,5 +1,9 @@
 import React from 'react'
+import { Route } from 'react-router-dom';
+
 import World from './components/world'
+import LandingPage from './components/LandingPage'
+import Login from './components/Login'
 
 function App() {
   return (
@@ -11,7 +15,9 @@ function App() {
         justifyContent: 'center',
         alignItems: 'center'
     }}>
-      <World />
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/login" component={Login} />
+        <Route path="/world" component={World} />
     </div>
   );
 }

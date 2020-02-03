@@ -2,8 +2,8 @@ import React from 'react'
 import { Route } from 'react-router-dom';
 
 import World from './components/world'
-import LandingPage from './components/LandingPage'
-import Login from './components/Login'
+import LandingPage from './components/landing/LandingPage'
+import Login from './components/landing/Login'
 
 function App() {
   return (

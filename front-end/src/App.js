@@ -2,6 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom';
 import './scss/App.scss'
 
+import AdminMapBuilder from './admin/map-builder'
 import World from './components/world'
 import LandingPage from './components/landing/LandingPage'
 import Login from './components/landing/Login'

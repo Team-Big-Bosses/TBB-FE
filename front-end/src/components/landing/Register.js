@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import { Form, FormGroup, Input, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
-import {loginUser} from './actions'
+import {registerUser} from './actions'
 
-const Login = (props) =>{
+const Register = (props) =>{
   const [credentials, setCredentials] = useState({
-    username: '',
-    password: ''
+    email: '',
+    password: '',
+    confirmPassword: ''
   });
 
   const handleChange = e =>{
@@ -18,14 +19,14 @@ const Login = (props) =>{
   }
 
   const handleSubmit = e =>{
-    e.preventDefafult();
-    props.loginUser(credentials);
+    e.preventDefault();
+    props.registerUser(credentials)
     props.history.push('/world')
   }
 
   return(
-    <div className="login-container">
-      <h1>Login!</h1>
+    <div className="register-container">
+      <h1>Sign Up!</h1>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <Input type="email" placeholder="Email" onChange={handleChange} value={credentials.username} />
@@ -33,18 +34,21 @@ const Login = (props) =>{
         <FormGroup>
           <Input type="password" placeholder="Password" onChange={handleChange} value={credentials.password} />
         </FormGroup>
-        <Button type="submit">Login</Button>
+        <FormGroup>
+          <Input type="password" placeholder="Confirm Password" onChange={handleChange} value={credentials.confirmPassword} />
+        </FormGroup>
+        <Button type="submit">Register!</Button>
       </Form>
-      <p>Not registered yet? <Link to='/register'>Sign up here!</Link></p>
+      <p>Already have an account? <Link to='/login'>Login!</Link></p>
     </div>
   )
 }
 
 const mapStateToProps = state =>{
-  console.log('mSTP login', state);
+  console.log('mSTP register', state);
   return{
 
   }
 }
 
-export default connect(mapStateToProps, {loginUser})(Login);
+export default connect(mapStateToProps,{registerUser})(Register);

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Form, FormGroup, Input, Button } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {loginUser} from './actions'
@@ -26,15 +25,11 @@ const Login = (props) =>{
   return(
     <div className="login-container">
       <h1>Login!</h1>
-      <Form onSubmit={handleSubmit}>
-        <FormGroup>
-          <Input type="email" placeholder="Email" onChange={handleChange} value={credentials.username} />
-        </FormGroup>
-        <FormGroup>
-          <Input type="password" placeholder="Password" onChange={handleChange} value={credentials.password} />
-        </FormGroup>
-        <Button type="submit">Login</Button>
-      </Form>
+      <form onSubmit={handleSubmit}>
+          <input type="email" placeholder="Email" onChange={handleChange} value={credentials.username} />
+          <input type="password" placeholder="Password" onChange={handleChange} value={credentials.password} />
+        <button type="submit">Login</button>
+      </form>
       <p>Not registered yet? <Link to='/register'>Sign up here!</Link></p>
     </div>
   )
